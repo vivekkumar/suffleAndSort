@@ -45,7 +45,10 @@ header {
     margin: .25em 0;
     box-sizing: border-box;
     padding: .25em;
+    color: #000;
 }
+
+
 
 .card-0 { border-color: #6F98A8; }
 .card-1 { border-color: #2B8EAD; }
@@ -64,6 +67,14 @@ footer {
     color: #000;
 }
 @media only screen and (min-width: 375px) {
+    body {
+        background: #EFEFEF;
+    }
+    header {
+        background: none;
+        color: #000;
+        margin-bottom: 10px;
+    }
     .container {
         display: flex;
         flex-direction: row-reverse;
@@ -82,9 +93,21 @@ footer {
     .card {
         display: inline-block;
         width: 33.33%;
-        height: 33.33%;
+        height: 0;
         margin: 0;
+        margin-top: -8px;
         font-size: 6em;
+        padding: 0;
+        padding-top: 33.33%;
+        position: relative;
+    }
+
+    .card-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        color: #fff;
     }
 
     .card-0 { background: #6F98A8; }

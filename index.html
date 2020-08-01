@@ -79,7 +79,9 @@
                 `card`,
                 `card-${i}`,
               ]);
-              this.cardEls[i].innerText = i + 1;
+              this.cardEls[i].innerHTML = `<div class="card-text">${
+                i + 1
+              }</div>`;
               this.cards[i] = i + 1;
             }
           } else {
