@@ -1,0 +1,9 @@
+{
+  "name": "suffle-and-sort",
+  "version": "1.0.0",
+  "description": "A simple suffle and sort",
+  "main": "index.js",
+  "repository": "https://github.com/vivekkumar/suffleAndSort.git",
+  "author": "Vivek Kumar",
+  "license": "MIT"
+}
