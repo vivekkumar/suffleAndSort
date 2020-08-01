@@ -6,116 +6,16 @@
   </head>
 
   <body>
-    <header>
-      Suffle and sort
-    </header>
     <section>
+      <header>
+        Suffle and Sort
+      </header>
       <div id="suffle-and-sort"></div>
+      <footer>Suffle and Sort by <em>Vivek</em></footer>
     </section>
-    <footer>Suffle and Sort by <em>Vivek</em></footer>
 
+    <script src="suffleAndSort.js"></script>
     <script>
-      function SuffleAndSort(el) {
-        const TOTAL_CARDS = 9;
-        this.cards = [];
-        this.cardEls = [];
-        this.containerEl = null;
-        this.lSectionEl = null;
-        this.rSectionEl = null;
-        this.suffleBtn = null;
-        this.sortBtn = null;
-
-        const createEl = (type, parent, css) => {
-          const el = document.createElement(type);
-          const classList = el.classList;
-          if (Array.isArray(css)) {
-            css.forEach((c) => {
-              classList.add(c);
-            });
-          } else if (typeof css === "string") {
-            classList.add(css);
-          }
-          parent.appendChild(el);
-          return el;
-        };
-
-        this.handleSuffle = () => {
-          this.suffle();
-          this.arrangeCards();
-        };
-
-        this.handleSort = () => {
-          this.sort();
-          this.arrangeCards();
-        };
-
-        this.buildHTML = () => {
-          if (this.containerEl) {
-            this.containerEl.classList.add("container");
-            // Create a section to hold buttons
-            this.rSectionEl = createEl(
-              "section",
-              this.containerEl,
-              "r-section"
-            );
-            // Create section to hold cards
-            this.lSectionEl = createEl(
-              "section",
-              this.containerEl,
-              "l-section"
-            );
-
-            // Create 2 button for suffle and sort
-            this.suffleBtn = createEl("button", this.rSectionEl, "btn");
-            this.suffleBtn.innerText = "Suffle";
-            this.sortBtn = createEl("button", this.rSectionEl, "btn");
-            this.sortBtn.innerText = "Sort";
-            // Add click handlers
-            this.suffleBtn.addEventListener("click", this.handleSuffle);
-            this.sortBtn.addEventListener("click", this.handleSort);
-            // Create Cards
-            for (let i = 0; i < TOTAL_CARDS; i++) {
-              this.cardEls[i] = createEl("div", this.lSectionEl, [
-                `card`,
-                `card-${i}`,
-              ]);
-              this.cardEls[i].innerHTML = `<div class="card-text">${
-                i + 1
-              }</div>`;
-              this.cards[i] = i + 1;
-            }
-          } else {
-            throw "No container passed";
-          }
-        };
-
-        this.init = () => {
-          if (el && typeof el === "string") {
-            this.containerEl = document.querySelector(`#${el}`);
-          } else {
-            this.containerEl = el;
-          }
-
-          this.buildHTML();
-        };
-
-        this.arrangeCards = () => {
-          this.lSectionEl.innerText = "";
-          this.cards.forEach((card) =>
-            this.lSectionEl.appendChild(this.cardEls[card - 1])
-          );
-        };
-
-        this.suffle = () => {
-          this.cards = this.cards.sort(() => Math.random() - 0.5);
-        };
-
-        this.sort = () => {
-          this.cards = this.cards.sort();
-        };
-        this.init();
-      }
-
       new SuffleAndSort("suffle-and-sort");
     </script>
   </body>
