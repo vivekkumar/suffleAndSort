@@ -1,9 +1,16 @@
 {
+  "homepage": "http://vivekkumarbt.github.io/suffleAndSort",
   "name": "suffle-and-sort",
   "version": "1.0.0",
   "description": "A simple suffle and sort",
   "main": "index.js",
   "repository": "https://github.com/vivekkumar/suffleAndSort.git",
   "author": "Vivek Kumar",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "deploy": "gh-pages -d app"
+  },
+  "devDependencies": {
+    "gh-pages": "^3.1.0"
+  }
 }
